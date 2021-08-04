@@ -1,5 +1,26 @@
 {
-    "navigationFallback": {
-        "rewrite": "/index.html"
+    
+
+    "auth": {
+        "identityProviders": {
+            "customOpenIdConnectProviders": {
+                "auth0": {
+                    "registration": {
+                        "clientIdSettingName": "CLIENT_ID",
+                        "clientCredential": {
+                            "clientSecretSettingName": "AUTH0_SECRET"
+                        },
+                        "openIdConnectConfiguration": {
+                            "wellKnownOpenIdConfiguration": "https://ny.matrix-uat.ms.com/.well-known/openid-configuration"
+                        }
+                    },
+                    "login": {
+                        "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                        "scopes": ["openid", "profile"]
+                    }
+                }
+            }
+        }
     }
+
 }
